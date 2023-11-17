@@ -21,7 +21,7 @@ app.use('/spotify-api',spotifyApi);
 
 app.use(errorAsyncHandler);
 
-const port = process.env.port || 8000;
+const port = process.env.PORT || 8000;
 
 //Self Pinging
 
