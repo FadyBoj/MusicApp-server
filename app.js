@@ -32,7 +32,7 @@ app.get('/self-ping',(req,res) =>{
 setInterval(async() =>{
 
     try {
-        const { data } = await axios.get('http://localhost:8000/self-ping');
+        const { data } = await axios.get('https://megnwene.onrender.com/self-ping');
         console.log("Pinged")
     } catch (error) {
         console.log("Error while self pinging")
