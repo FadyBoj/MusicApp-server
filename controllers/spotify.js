@@ -201,7 +201,6 @@ const recommendations = async (req,res) =>{
     }
 }
 
-//https://www.youtube.com/watch?v=XXYlFuWEuKI
 
 const getAudio = async (req,res) =>{
 
@@ -216,11 +215,27 @@ const getAudio = async (req,res) =>{
         return res.status(404).json({msg:"No items found"})
     }
 
-    console
+    
+   const videoID = searchResults.items[0].id;
+   
+   try {
+    const audioURL = ytdl(videoID,{quality:'highestaudio'});
 
-   const videoURL = searchResults.items[0].url;
+     
+    res.set({
+        'Content-Type': 'audio/mpeg',
+        'Content-Disposition': 'inline',
+      });
+   
+      // Stream the audio directly to the response
+      audioURL.pipe(res);
+   
 
-   res.status(200).json({url:videoURL})
+
+   } catch (error) {
+    console.log(error)
+   }
+
 
 }
 
