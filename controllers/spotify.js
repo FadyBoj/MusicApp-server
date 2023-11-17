@@ -68,7 +68,7 @@ const refreshToken = async(req,res) =>{
 
 
 const topSongs = async(req,res) =>{
-    const  response = await axios.get('https://megnwene.onrender.com/spotify-api/get-token');
+    const  response = await axios.get('https://megnwene.onrender.com/spotify-api/token');
     const token = response.data.access_token;
 
     try {
@@ -96,7 +96,7 @@ const getSong = async(req,res)=>{
     console.log(id)
 
     try {
-    const  response = await axios.get('https://megnwene.onrender.com/spotify-api/get-token');
+    const  response = await axios.get('https://megnwene.onrender.com/spotify-api/token');
     const token = response.data.access_token;
 
 
@@ -116,7 +116,7 @@ const getSong = async(req,res)=>{
 
 const getTopArtist = async (req,res) =>{
     try {
-        const  response = await axios.get('https://megnwene.onrender.com/spotify-api/get-token');
+        const  response = await axios.get('https://megnwene.onrender.com/spotify-api/token');
         const token = response.data.access_token;
 
         const artists = await axios.get('https://api.spotify.com/v1/playlists/4liDm4FUbLZKkN7hmwBB0x/tracks?limit=14',{
@@ -164,7 +164,7 @@ const realtedIds ='1Xyo4u8uXC1ZmMpatF05PJ,4WreACyfQITcXGx86xxYkG,1QAJqy2dA3ihHBF
 const recommendations = async (req,res) =>{
     try {
 
-        const  response = await axios.get('https://megnwene.onrender.com/spotify-api/get-token');
+        const  response = await axios.get('https://megnwene.onrender.com/spotify-api/token');
         const token = response.data.access_token;
 
         const recommendations = await axios.get(`https://api.spotify.com/v1/recommendations?seed_artists=${realtedIds}`,{
